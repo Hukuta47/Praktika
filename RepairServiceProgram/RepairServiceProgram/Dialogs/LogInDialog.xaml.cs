@@ -14,6 +14,8 @@ namespace RepairServiceProgram.Dialogs
         public LogInDialog()
         {
             InitializeComponent();
+
+            MessageBox.Show(new RepairServiceDBEntities().GenerateRepairReport(1).ToList()[0].MasterEmployeeID.ToString());
         }
     }
 }

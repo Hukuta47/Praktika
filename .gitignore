@@ -396,3 +396,23 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/RepairServiceProgram/RepairServiceProgram/DataDB/AnalyzeRequestProcessingTime_Result.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/Comments.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/GenerateRepairReport_Result.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/LoginData.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.Context.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.Context.tt
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.Designer.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.edmx
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.edmx.diagram
+/RepairServiceProgram/RepairServiceProgram/DataDB/ModelDB.tt
+/RepairServiceProgram/RepairServiceProgram/DataDB/Orders.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/OrdersStatus.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/RepairParts.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/sp_helpdiagramdefinition_Result.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/sp_helpdiagrams_Result.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/sysdiagrams.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/Techs.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/Users.cs
+/RepairServiceProgram/RepairServiceProgram/DataDB/UserTypes.cs

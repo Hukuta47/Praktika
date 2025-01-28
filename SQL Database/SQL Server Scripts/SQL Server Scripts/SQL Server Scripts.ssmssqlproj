@@ -3,7 +3,7 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="DESKTOP-MD8S354\MSSQLSERVER01:HK-PC\Hukuta">
+        <ConnectionNode Name="DESKTOP-MD8S354\MSSQLSERVER01:ZABGC\HK">
           <Created>2025-01-27T13:16:46.4504198+09:00</Created>
           <Type>SQL</Type>
           <Server>DESKTOP-MD8S354\MSSQLSERVER01</Server>
@@ -18,7 +18,7 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName />
         </ConnectionNode>
-        <ConnectionNode Name="HK-PC:HK-PC\Hukuta">
+        <ConnectionNode Name="HK-PC:ZABGC\HK">
           <Created>2025-01-28T19:53:19.1772103+09:00</Created>
           <Type>SQL</Type>
           <Server>HK-PC</Server>
@@ -33,7 +33,7 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName />
         </ConnectionNode>
-        <ConnectionNode Name="LIT-SERVER\SQLEXPRESS:HK-PC\Hukuta">
+        <ConnectionNode Name="LIT-SERVER\SQLEXPRESS:ZABGC\HK">
           <Created>2025-01-28T08:43:54.1429205+09:00</Created>
           <Type>SQL</Type>
           <Server>LIT-SERVER\SQLEXPRESS</Server>
@@ -53,20 +53,20 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="CreateDB.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HK-PC:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>HK-PC</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LIT-SERVER\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LIT-SERVER\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>CreateDB.sql</FullPath>
         </FileNode>
         <FileNode Name="CreateProcedures.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HK-PC:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>HK-PC</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LIT-SERVER\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LIT-SERVER\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>CreateProcedures.sql</FullPath>
         </FileNode>
         <FileNode Name="FillData.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HK-PC:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>HK-PC</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LIT-SERVER\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LIT-SERVER\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>FillData.sql</FullPath>
         </FileNode>
