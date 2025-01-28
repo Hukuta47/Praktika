@@ -394,6 +394,9 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# Microsoft SQL Server Managment
+/SQL database/SQL Server Scripts/SQL Server Scripts/SQL Server Scripts.ssmssqlproj
+
 # JetBrains Rider
 *.sln.iml
 /RepairServiceProgram/RepairServiceProgram/DataDB/AnalyzeRequestProcessingTime_Result.cs
