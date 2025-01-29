@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4A68399D-C913-4B38-9E08-01087F3D30D8}</ProjectGuid>
+    <ProjectGuid>{C8B509E7-6F0A-4DCF-9B0C-0EED22A70ADB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RepairServiceProgram</RootNamespace>
     <AssemblyName>RepairServiceProgram</AssemblyName>
@@ -44,7 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -65,10 +64,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Dialogs\LogInDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,8 +72,50 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Dialogs\LogInDialog.xaml.cs">
-      <DependentUpon>LogInDialog.xaml</DependentUpon>
+    <Compile Include="DataDB\AnalyzeRequestProcessingTime_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\Comments.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\GenerateRepairReport_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\LoginData.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\ModelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\ModelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\ModelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\Orders.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\OrdersStatus.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\RepairParts.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\Techs.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\Users.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\UserTypes.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -103,6 +140,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="DataDB\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataDB\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,10 +157,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="DataDB\ModelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataDB\ModelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataDB\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
