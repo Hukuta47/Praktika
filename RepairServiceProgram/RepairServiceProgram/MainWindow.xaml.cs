@@ -1,16 +1,22 @@
-﻿
+﻿using System.Windows;
+using RepairServiceProgram.Classes;
 using RepairServiceProgram.Pages;
-using System.Windows;
 
 namespace RepairServiceProgram
 {
     public partial class MainWindow : Window
     {
-        string LoginData;
-        string PasswordData;
+        public static string UsernameData;
+        public static string PasswordData;
         public MainWindow()
         {
             InitializeComponent();
+            InitializeProgramData();
+            PageManager.MainFrame.Navigate(new PageLogin());
+        }
+        void InitializeProgramData()
+        {
+            PageManager.MainFrame = MainFrame;
         }
     }
 }

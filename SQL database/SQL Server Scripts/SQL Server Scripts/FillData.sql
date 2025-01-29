@@ -1,4 +1,4 @@
-INSERT INTO LoginData (Login, Password)
+INSERT INTO LoginData (Username, Password)
 VALUES
 ('kasoo', 'root'),
 ('murashov123', 'qwerty'),

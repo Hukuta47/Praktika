@@ -19,7 +19,7 @@
 			<TextBox Padding="10" Margin="10,10,10,5"/>
 			<TextBox Padding="10" Margin="10,10,10,5"/>
 			<Button Padding="10" Margin="10,5,10,5" Content="Регистрация"/>
-			<Button Padding="10" Margin="10,5,10,10" Content="Назад"/>
+			<Button Padding="10" Margin="10,5,10,10" Content="Назад" Click="Return_Click"/>
 
 		</StackPanel>
 	</Border>

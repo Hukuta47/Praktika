@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a3e728b7c96d4dab972e43a34df3c38a" Name="Diagram1">
+      <Diagram DiagramId="bb05b029e31440e3b027738732f13bae" Name="Diagram1">
         <EntityTypeShape EntityType="RepairServiceDBModel.Comments" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.LoginData" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.Orders" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.OrdersStatus" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.RepairParts" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RepairServiceDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.Techs" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.Users" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.UserTypes" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />

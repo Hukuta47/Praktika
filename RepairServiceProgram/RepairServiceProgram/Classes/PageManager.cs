@@ -5,8 +5,6 @@ namespace RepairServiceProgram.Classes
 {
     public static class PageManager
     {
-        static Frame MainFrame;
-
-
+        public static Frame MainFrame;
     }
 }

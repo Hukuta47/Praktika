@@ -5,7 +5,7 @@ GO
 CREATE TABLE LoginData 
 (
 	[LoginDataID] INT IDENTITY PRIMARY KEY,
-	[Login] VARCHAR(20) NOT NULL,
+	[Username] VARCHAR(20) NOT NULL,
 	[Password] VARCHAR(20) NOT NULL
 )
 CREATE TABLE Techs 
@@ -40,20 +40,20 @@ CREATE TABLE Users
 	[LastName] NVARCHAR(20) NOT NULL,
 	[Patronymic] NVARCHAR(20) NULL,
 	[Phone] NVARCHAR(12) NOT NULL,
-	[LoginDateID] INT NOT NULL REFERENCES LoginData(LoginDataID),
+	[LoginDataID] INT NOT NULL REFERENCES LoginData(LoginDataID),
 	[UserTypeID] INT NOT NULL REFERENCES UserTypes(UserTypeID)
 )
 CREATE TABLE Orders
 (
 	[OrderID]          INT IDENTITY PRIMARY KEY,
-	[CustomerID]       INT REFERENCES Users(UserID) NOT NULL,
-	[MasterEmployeeID] INT REFERENCES Users(UserID) NULL,
+	[CustomerID]       INT NOT NULL REFERENCES Users(UserID),
+	[MasterEmployeeID] INT NULL REFERENCES Users(UserID),
 	[OrderDate]        DATE NOT NULL,
 	[TechID]           INT NOT NULL REFERENCES Techs(TechID),
 	[Description]      NVARCHAR(MAX) NOT NULL,
 	[OrderStatusID]    INT NOT NULL REFERENCES OrdersStatus(OrderStatusID),
 	[CompletionDate]   DATE NULL,
-	[RepairPartsID]    INT REFERENCES RepairParts(RepairPartID) NULL
+	[RepairPartsID]    INT NULL REFERENCES RepairParts(RepairPartID)
 )
 CREATE TABLE Comments 
 (

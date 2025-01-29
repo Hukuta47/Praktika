@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RepairServiceProgram.Classes;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace RepairServiceProgram.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для PageLogin.xaml
-    /// </summary>
+
     public partial class PageLogin : Page
     {
         public PageLogin()
@@ -27,7 +15,16 @@ namespace RepairServiceProgram.Pages
 
         private void Registration_Click(object sender, RoutedEventArgs e)
         {
+            PageManager.MainFrame.Navigate(new PageRegister());
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.UsernameData = Textbox_UsernameData.Text;
+            MainWindow.PasswordData = PasswordBox_PasswordData.Password;
 
+            PageManager.MainFrame.Navigate(new PageMain(Textbox_UsernameData.Text));
+
+            PageManager.MainFrame.NavigationService.RemoveBackEntry();
         }
     }
 }
