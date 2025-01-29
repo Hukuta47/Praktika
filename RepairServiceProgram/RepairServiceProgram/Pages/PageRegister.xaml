@@ -1,0 +1,26 @@
+﻿<Page x:Class="RepairServiceProgram.Pages.PageRegister"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RepairServiceProgram.Pages"
+      mc:Ignorable="d" 
+            d:DesignHeight="430" d:DesignWidth="350"
+      Title="PageLogin">
+
+	<Border Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" Background="White" CornerRadius="20">
+		<Border.Effect>
+			<DropShadowEffect ShadowDepth="0" Direction="0" BlurRadius="20"/>
+		</Border.Effect>
+		<StackPanel>
+			<Label Content="Регистранция" FontFamily="Arial" FontSize="24" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+			<TextBox Padding="10" Margin="10,10,10,5"/>
+			<TextBox Padding="10" Margin="10,10,10,5"/>
+			<TextBox Padding="10" Margin="10,10,10,5"/>
+			<TextBox Padding="10" Margin="10,10,10,5"/>
+			<Button Padding="10" Margin="10,5,10,5" Content="Регистрация"/>
+			<Button Padding="10" Margin="10,5,10,10" Content="Назад"/>
+
+		</StackPanel>
+	</Border>
+</Page>
