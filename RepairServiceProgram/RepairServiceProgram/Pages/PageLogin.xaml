@@ -12,20 +12,30 @@
 		<Border.Effect>
 			<DropShadowEffect ShadowDepth="0" Direction="0" BlurRadius="20"/>
 		</Border.Effect>
+		
 		<StackPanel>
 			<Label  Content="Вход" FontFamily="Arial" FontSize="24" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-			<TextBox Name="Textbox_UsernameData" Padding="10" Margin="10,10,10,5"/>
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition/>
-					<ColumnDefinition Width="auto"/>
-				</Grid.ColumnDefinitions>
+			
+			<StackPanel  Margin="10,10,10,0">
+				<TextBox Name="Textbox_UsernameData" Padding="10"/>
+				<TextBlock Name="Textblock_ErrLogin" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
 
-				<PasswordBox Name="PasswordBox_PasswordData" Padding="10" Margin="10,5,2.5,10" Grid.Column="0" Visibility="Visible"/>
-				<TextBox Padding="10" Margin="10,5,2.5,10" Grid.Row="0" Visibility="Collapsed"/>
+			<StackPanel Margin="10,5,10,5">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
 
-				<ToggleButton Padding="10" Margin="2.5,5,10,10" Content="" Grid.Column="1"/>
-			</Grid>
+					<PasswordBox Name="PasswordBox_PasswordData" Padding="10" Grid.Column="0" Visibility="Visible"/>
+					<TextBox Padding="10" Grid.Row="0" Visibility="Collapsed"/>
+
+					<ToggleButton Padding="10" Margin="2.5,0,0,0" Content="" Grid.Column="1"/>
+				</Grid>
+				<TextBlock Name="Textblock_ErrPassword" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
+			
 			<Button Padding="10" Margin="10,0,10,5" Content="Войти" Click="Login_Click"/>
 			<Button Padding="10" Margin="10,5,10,10" Content="Зарегистрироваться" Click="Registration_Click"/>
 

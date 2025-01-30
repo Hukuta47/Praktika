@@ -109,15 +109,6 @@
     <Compile Include="DataDB\RepairParts.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataDB\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataDB\sp_helpdiagrams_Result.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataDB\sysdiagrams.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataDB\Techs.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

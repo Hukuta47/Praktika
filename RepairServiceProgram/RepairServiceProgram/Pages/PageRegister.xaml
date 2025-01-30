@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RepairServiceProgram.Pages"
       mc:Ignorable="d" 
-            d:DesignHeight="430" d:DesignWidth="350"
+            d:DesignHeight="540" d:DesignWidth="350"
       Title="PageLogin">
 
 	<Border Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" Background="White" CornerRadius="20">
@@ -14,12 +14,33 @@
 		</Border.Effect>
 		<StackPanel>
 			<Label Content="Регистранция" FontFamily="Arial" FontSize="24" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-			<TextBox Padding="10" Margin="10,10,10,5"/>
-			<TextBox Padding="10" Margin="10,10,10,5"/>
-			<TextBox Padding="10" Margin="10,10,10,5"/>
-			<TextBox Padding="10" Margin="10,10,10,5"/>
-			<Button Padding="10" Margin="10,5,10,5" Content="Регистрация"/>
-			<Button Padding="10" Margin="10,5,10,10" Content="Назад" Click="Return_Click"/>
+
+			<StackPanel Margin="10,10,10,0">
+				<TextBox Name="Textbox_FullNameData" Padding="10"/>
+				<TextBlock Name="Textblock_ErrFullNameData" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
+			<StackPanel Margin="10,5,10,0">
+				<TextBox Name="Textbox_UsernameData" Padding="10" />
+				<TextBlock Name="Textblock_ErrUsernameData" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
+			<StackPanel Margin="10,5,10,0">
+				<TextBox Name="Textbox_NumberPhoneData" Padding="10" />
+				<TextBlock Name="Textblock_ErrNumberPhoneData" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
+			<StackPanel Margin="10,5,10,0">
+				<TextBox Name="Textbox_PasswordData" Padding="10" />
+				<TextBlock Name="Textblock_ErrPasswordData" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
+			<StackPanel Margin="10,5,10,0">
+				<TextBox Name="Textbox_RePasswordData" Padding="10" />
+				<TextBlock Name="Textblock_ErrRePasswordData" Text="*text*" Foreground="Red" Visibility="Hidden"/>
+			</StackPanel>
+
+			
+			
+			<Button Padding="10" Margin="10,5,10,5" Content="Регистрация" Click="Register_Click"/>
+			<Button Padding="10" Margin="10,5,10,0" Content="Назад" Click="Return_Click"/>
+			<TextBlock Name="Textblock_SuccsesRegister" Text="Вы зарегстрировались!" TextAlignment="Center" Foreground="Green" Visibility="Hidden"/>
 
 		</StackPanel>
 	</Border>
