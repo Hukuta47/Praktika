@@ -42,7 +42,7 @@
           </Key>
           <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="RepairParts">
           <Key>
@@ -50,7 +50,7 @@
           </Key>
           <Property Name="RepairPartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Techs">
           <Key>
@@ -59,7 +59,8 @@
           <Property Name="TechID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TechTypeName" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Manufacturer" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Mode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -81,7 +82,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK__Comments__Master__4BAC3F29">
+        <Association Name="FK__Comments__Master__4CA06362">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +94,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__OrderI__4CA06362">
+        <Association Name="FK__Comments__OrderI__4D94879B">
           <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -129,7 +130,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__OrderSta__47DBAE45">
+        <Association Name="FK__Orders__OrderSta__48CFD27E">
           <End Role="OrdersStatus" Type="Self.OrdersStatus" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -141,7 +142,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__RepairPa__48CFD27E">
+        <Association Name="FK__Orders__RepairPa__49C3F6B7">
           <End Role="RepairParts" Type="Self.RepairParts" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -153,7 +154,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__TechID__46E78A0C">
+        <Association Name="FK__Orders__TechID__47DBAE45">
           <End Role="Techs" Type="Self.Techs" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -196,14 +197,12 @@
         </Function>
         <Function Name="CompleteRepairRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
-          <Parameter Name="CompletionDate" Type="date" Mode="In" />
           <Parameter Name="RepairPartsID" Type="int" Mode="In" />
         </Function>
         <Function Name="CreateRepairRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CustomerID" Type="int" Mode="In" />
           <Parameter Name="TechID" Type="int" Mode="In" />
           <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
-          <Parameter Name="OrderDate" Type="date" Mode="In" />
         </Function>
         <Function Name="EditRepairRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
@@ -228,11 +227,11 @@
           <EntitySet Name="Techs" EntityType="Self.Techs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Comments__Master__4BAC3F29" Association="Self.FK__Comments__Master__4BAC3F29">
+          <AssociationSet Name="FK__Comments__Master__4CA06362" Association="Self.FK__Comments__Master__4CA06362">
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__OrderI__4CA06362" Association="Self.FK__Comments__OrderI__4CA06362">
+          <AssociationSet Name="FK__Comments__OrderI__4D94879B" Association="Self.FK__Comments__OrderI__4D94879B">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
@@ -244,15 +243,15 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__OrderSta__47DBAE45" Association="Self.FK__Orders__OrderSta__47DBAE45">
+          <AssociationSet Name="FK__Orders__OrderSta__48CFD27E" Association="Self.FK__Orders__OrderSta__48CFD27E">
             <End Role="OrdersStatus" EntitySet="OrdersStatus" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__RepairPa__48CFD27E" Association="Self.FK__Orders__RepairPa__48CFD27E">
+          <AssociationSet Name="FK__Orders__RepairPa__49C3F6B7" Association="Self.FK__Orders__RepairPa__49C3F6B7">
             <End Role="RepairParts" EntitySet="RepairParts" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__TechID__46E78A0C" Association="Self.FK__Orders__TechID__46E78A0C">
+          <AssociationSet Name="FK__Orders__TechID__47DBAE45" Association="Self.FK__Orders__TechID__47DBAE45">
             <End Role="Techs" EntitySet="Techs" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
@@ -278,8 +277,8 @@
           <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MasterEmployeeID" Type="Int32" Nullable="false" />
           <Property Name="OrderID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Comments__Master__4BAC3F29" FromRole="Comments" ToRole="Users" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Comments__OrderI__4CA06362" FromRole="Comments" ToRole="Orders" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Comments__Master__4CA06362" FromRole="Comments" ToRole="Users" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Comments__OrderI__4D94879B" FromRole="Comments" ToRole="Orders" />
         </EntityType>
         <EntityType Name="LoginData">
           <Key>
@@ -303,12 +302,12 @@
           <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
           <Property Name="CompletionDate" Type="DateTime" Precision="0" />
           <Property Name="RepairPartsID" Type="Int32" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__OrderI__4CA06362" FromRole="Orders" ToRole="Comments" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__OrderI__4D94879B" FromRole="Orders" ToRole="Comments" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Orders__Customer__44FF419A" FromRole="Orders" ToRole="Users" />
           <NavigationProperty Name="Users1" Relationship="Self.FK__Orders__MasterEm__45F365D3" FromRole="Orders" ToRole="Users" />
-          <NavigationProperty Name="OrdersStatus" Relationship="Self.FK__Orders__OrderSta__47DBAE45" FromRole="Orders" ToRole="OrdersStatus" />
-          <NavigationProperty Name="RepairParts" Relationship="Self.FK__Orders__RepairPa__48CFD27E" FromRole="Orders" ToRole="RepairParts" />
-          <NavigationProperty Name="Techs" Relationship="Self.FK__Orders__TechID__46E78A0C" FromRole="Orders" ToRole="Techs" />
+          <NavigationProperty Name="OrdersStatus" Relationship="Self.FK__Orders__OrderSta__48CFD27E" FromRole="Orders" ToRole="OrdersStatus" />
+          <NavigationProperty Name="RepairParts" Relationship="Self.FK__Orders__RepairPa__49C3F6B7" FromRole="Orders" ToRole="RepairParts" />
+          <NavigationProperty Name="Techs" Relationship="Self.FK__Orders__TechID__47DBAE45" FromRole="Orders" ToRole="Techs" />
         </EntityType>
         <EntityType Name="OrdersStatus">
           <Key>
@@ -316,8 +315,8 @@
           </Key>
           <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__OrderSta__47DBAE45" FromRole="OrdersStatus" ToRole="Orders" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__OrderSta__48CFD27E" FromRole="OrdersStatus" ToRole="Orders" />
         </EntityType>
         <EntityType Name="RepairParts">
           <Key>
@@ -325,8 +324,8 @@
           </Key>
           <Property Name="RepairPartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__RepairPa__48CFD27E" FromRole="RepairParts" ToRole="Orders" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__RepairPa__49C3F6B7" FromRole="RepairParts" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Techs">
           <Key>
@@ -335,8 +334,9 @@
           <Property Name="TechID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TechTypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Manufacturer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Mode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__TechID__46E78A0C" FromRole="Techs" ToRole="Orders" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__TechID__47DBAE45" FromRole="Techs" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -349,7 +349,7 @@
           <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoginDataID" Type="Int32" Nullable="false" />
           <Property Name="UserTypeID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__Master__4BAC3F29" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__Master__4CA06362" FromRole="Users" ToRole="Comments" />
           <NavigationProperty Name="LoginData" Relationship="Self.FK__Users__LoginData__412EB0B6" FromRole="Users" ToRole="LoginData" />
           <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Customer__44FF419A" FromRole="Users" ToRole="Orders" />
           <NavigationProperty Name="Orders1" Relationship="Self.FK__Orders__MasterEm__45F365D3" FromRole="Users" ToRole="Orders" />
@@ -364,7 +364,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Users__UserTypeI__4222D4EF" FromRole="UserTypes" ToRole="Users" />
         </EntityType>
-        <Association Name="FK__Comments__Master__4BAC3F29">
+        <Association Name="FK__Comments__Master__4CA06362">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -376,7 +376,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__OrderI__4CA06362">
+        <Association Name="FK__Comments__OrderI__4D94879B">
           <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -424,7 +424,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__OrderSta__47DBAE45">
+        <Association Name="FK__Orders__OrderSta__48CFD27E">
           <End Role="OrdersStatus" Type="Self.OrdersStatus" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -436,7 +436,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__RepairPa__48CFD27E">
+        <Association Name="FK__Orders__RepairPa__49C3F6B7">
           <End Role="RepairParts" Type="Self.RepairParts" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -448,7 +448,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__TechID__46E78A0C">
+        <Association Name="FK__Orders__TechID__47DBAE45">
           <End Role="Techs" Type="Self.Techs" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -481,11 +481,11 @@
           <EntitySet Name="Techs" EntityType="Self.Techs" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="UserTypes" EntityType="Self.UserTypes" />
-          <AssociationSet Name="FK__Comments__Master__4BAC3F29" Association="Self.FK__Comments__Master__4BAC3F29">
+          <AssociationSet Name="FK__Comments__Master__4CA06362" Association="Self.FK__Comments__Master__4CA06362">
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__OrderI__4CA06362" Association="Self.FK__Comments__OrderI__4CA06362">
+          <AssociationSet Name="FK__Comments__OrderI__4D94879B" Association="Self.FK__Comments__OrderI__4D94879B">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
@@ -501,15 +501,15 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__OrderSta__47DBAE45" Association="Self.FK__Orders__OrderSta__47DBAE45">
+          <AssociationSet Name="FK__Orders__OrderSta__48CFD27E" Association="Self.FK__Orders__OrderSta__48CFD27E">
             <End Role="OrdersStatus" EntitySet="OrdersStatus" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__RepairPa__48CFD27E" Association="Self.FK__Orders__RepairPa__48CFD27E">
+          <AssociationSet Name="FK__Orders__RepairPa__49C3F6B7" Association="Self.FK__Orders__RepairPa__49C3F6B7">
             <End Role="RepairParts" EntitySet="RepairParts" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__TechID__46E78A0C" Association="Self.FK__Orders__TechID__46E78A0C">
+          <AssociationSet Name="FK__Orders__TechID__47DBAE45" Association="Self.FK__Orders__TechID__47DBAE45">
             <End Role="Techs" EntitySet="Techs" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
@@ -524,14 +524,12 @@
           </FunctionImport>
           <FunctionImport Name="CompleteRepairRequest">
             <Parameter Name="OrderID" Mode="In" Type="Int32" />
-            <Parameter Name="CompletionDate" Mode="In" Type="DateTime" />
             <Parameter Name="RepairPartsID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="CreateRepairRequest">
             <Parameter Name="CustomerID" Mode="In" Type="Int32" />
             <Parameter Name="TechID" Mode="In" Type="Int32" />
             <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="EditRepairRequest">
             <Parameter Name="OrderID" Mode="In" Type="Int32" />
@@ -572,16 +570,16 @@
           <Property Type="String" Name="MasterPhone" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="TechTypeName" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Manufacturer" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Mode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="RepairPartName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="RepairPartDescription" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RepairPartDescription" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetOrdersByCustomer_Result">
           <Property Type="Int32" Name="OrderID" Nullable="false" />
           <Property Type="DateTime" Name="OrderDate" Nullable="false" />
-          <Property Type="String" Name="FullName" Nullable="false" MaxLength="62" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="62" />
           <Property Type="String" Name="DescriptionProbles" Nullable="false" />
-          <Property Type="String" Name="OrderStatus" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="20" />
           <Property Type="DateTime" Name="CompletionDate" Nullable="true" />
         </ComplexType>
       </Schema>
@@ -648,7 +646,8 @@
                 <ScalarProperty Name="TechID" ColumnName="TechID" />
                 <ScalarProperty Name="TechTypeName" ColumnName="TechTypeName" />
                 <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
-                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -708,7 +707,7 @@
                 <ScalarProperty Name="MasterPhone" ColumnName="MasterPhone" />
                 <ScalarProperty Name="TechTypeName" ColumnName="TechTypeName" />
                 <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
-                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="RepairPartName" ColumnName="RepairPartName" />
                 <ScalarProperty Name="RepairPartDescription" ColumnName="RepairPartDescription" />
               </ComplexTypeMapping>

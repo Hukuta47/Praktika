@@ -30,7 +30,7 @@ namespace RepairServiceProgram.DataDB
         public string MasterPhone { get; set; }
         public string TechTypeName { get; set; }
         public string Manufacturer { get; set; }
-        public string Mode { get; set; }
+        public string Model { get; set; }
         public string RepairPartName { get; set; }
         public string RepairPartDescription { get; set; }
     }

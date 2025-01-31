@@ -31,7 +31,7 @@ VALUES
 ('Максим', 'Титов', 'Иванович', '89994563843', 9, 4),
 ('Марк', 'Иванов', 'Максимович', '89994563844', 10, 2);
 
-INSERT INTO Techs (TechTypeName, Manufacturer, Mode)
+INSERT INTO Techs (TechTypeName, Manufacturer, Model)
 VALUES
 ('Фен', 'Ладомир', 'ТА112 белый'),
 ('Тостер', 'Redmond', 'RT-437 черный'),
@@ -45,7 +45,8 @@ INSERT INTO OrdersStatus (Name, Description)
 VALUES
 (N'В процессе ремонта', N'Заявка в процессе ремонта'),
 (N'Готова к выдаче', N'Заявка готова к выдаче'),
-(N'Новая заявка', N'Новая заявка');
+(N'Зарегистрирована', N'Регистрация заявки'),
+(N'Новая заявка', N'В рассмотрении');
 
 INSERT INTO RepairParts (Name, Description)
 VALUES

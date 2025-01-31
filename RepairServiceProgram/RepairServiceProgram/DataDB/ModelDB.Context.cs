@@ -54,24 +54,20 @@ namespace RepairServiceProgram.DataDB
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AssignMasterToRequest", orderIDParameter, masterEmployeeIDParameter);
         }
     
-        public virtual int CompleteRepairRequest(Nullable<int> orderID, Nullable<System.DateTime> completionDate, Nullable<int> repairPartsID)
+        public virtual int CompleteRepairRequest(Nullable<int> orderID, Nullable<int> repairPartsID)
         {
             var orderIDParameter = orderID.HasValue ?
                 new ObjectParameter("OrderID", orderID) :
                 new ObjectParameter("OrderID", typeof(int));
     
-            var completionDateParameter = completionDate.HasValue ?
-                new ObjectParameter("CompletionDate", completionDate) :
-                new ObjectParameter("CompletionDate", typeof(System.DateTime));
-    
             var repairPartsIDParameter = repairPartsID.HasValue ?
                 new ObjectParameter("RepairPartsID", repairPartsID) :
                 new ObjectParameter("RepairPartsID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CompleteRepairRequest", orderIDParameter, completionDateParameter, repairPartsIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CompleteRepairRequest", orderIDParameter, repairPartsIDParameter);
         }
     
-        public virtual int CreateRepairRequest(Nullable<int> customerID, Nullable<int> techID, string description, Nullable<System.DateTime> orderDate)
+        public virtual int CreateRepairRequest(Nullable<int> customerID, Nullable<int> techID, string description)
         {
             var customerIDParameter = customerID.HasValue ?
                 new ObjectParameter("CustomerID", customerID) :
@@ -85,11 +81,7 @@ namespace RepairServiceProgram.DataDB
                 new ObjectParameter("Description", description) :
                 new ObjectParameter("Description", typeof(string));
     
-            var orderDateParameter = orderDate.HasValue ?
-                new ObjectParameter("OrderDate", orderDate) :
-                new ObjectParameter("OrderDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateRepairRequest", customerIDParameter, techIDParameter, descriptionParameter, orderDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateRepairRequest", customerIDParameter, techIDParameter, descriptionParameter);
         }
     
         public virtual int EditRepairRequest(Nullable<int> orderID, Nullable<int> techID, string description)

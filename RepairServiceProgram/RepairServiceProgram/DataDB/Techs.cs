@@ -23,7 +23,8 @@ namespace RepairServiceProgram.DataDB
         public int TechID { get; set; }
         public string TechTypeName { get; set; }
         public string Manufacturer { get; set; }
-        public string Mode { get; set; }
+        public string Model { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
