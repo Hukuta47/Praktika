@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using RepairServiceProgram.Classes.Objects;
+using RepairServiceProgram.Pages.Pages_Customer;
 
 
 namespace RepairServiceProgram.Pages
@@ -51,6 +53,24 @@ namespace RepairServiceProgram.Pages
             }
 
             // Вход удачный
+
+            int LoginDataID = MainWindow.ModelDB.LoginData.FirstOrDefault(b => b.Username == username).LoginDataID;
+            MainWindow.userData = new UserData
+            {
+                UserID = MainWindow.ModelDB.Users.FirstOrDefault(a => a.LoginDataID == LoginDataID).UserID,
+
+                FirstName = MainWindow.ModelDB.Users.FirstOrDefault(a => a.LoginDataID == LoginDataID).FirstName,
+
+                LastName = MainWindow.ModelDB.Users.FirstOrDefault(a => a.LoginDataID == LoginDataID).LastName,
+
+                Patronymic = MainWindow.ModelDB.Users.FirstOrDefault(a => a.LoginDataID == LoginDataID).Patronymic,
+
+                Phone = MainWindow.ModelDB.Users.FirstOrDefault(a => a.LoginDataID == LoginDataID).Phone,
+            };
+
+            PageManager.MainFrame.Navigate(new PageMainCustomer());
+
+            
         }
 
         private void HideErrorMessages()

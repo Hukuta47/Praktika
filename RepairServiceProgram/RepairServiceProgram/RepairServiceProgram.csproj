@@ -72,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\Objects\UserData.cs" />
     <Compile Include="Classes\PageManager.cs" />
     <Compile Include="DataDB\AnalyzeRequestProcessingTime_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -80,6 +81,9 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataDB\GenerateRepairReport_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDB\GetOrdersByCustomer_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataDB\LoginData.cs">
@@ -126,11 +130,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageMain.xaml">
+    <Page Include="Pages\PageRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageRegister.xaml">
+    <Page Include="Pages\Pages Customer\PageMainCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,11 +143,11 @@
     <Compile Include="Pages\PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageMain.xaml.cs">
-      <DependentUpon>PageMain.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageRegister.xaml.cs">
       <DependentUpon>PageRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pages Customer\PageMainCustomer.xaml.cs">
+      <DependentUpon>PageMainCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -183,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dialogs\" />
+    <Folder Include="Pages\Pages Manager\" />
+    <Folder Include="Pages\Pages Master\" />
+    <Folder Include="Pages\Pages Operator\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataDB\ModelDB.Context.tt">

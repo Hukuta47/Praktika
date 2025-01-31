@@ -113,3 +113,26 @@ BEGIN
 END
 GO
 -- 6 --
+
+CREATE PROCEDURE GetOrdersByCustomer
+    @CustomerID INT
+AS
+BEGIN
+    SELECT
+        O.OrderID AS OrderID,
+        O.OrderDate AS OrderDate,
+        CONCAT(M.FirstName, ' ', M.LastName, ' ', M.Patronymic) AS FullName,
+        O.Description AS DescriptionProbles,
+        OS.Name AS OrderStatus,
+        O.CompletionDate AS CompletionDate
+    FROM
+        Orders O
+    JOIN
+        Users M ON O.MasterEmployeeID = M.UserID
+    JOIN
+        OrdersStatus OS ON O.OrderStatusID = OS.OrderStatusID
+    WHERE
+        O.CustomerID = 8;
+END;
+
+-- 7 --

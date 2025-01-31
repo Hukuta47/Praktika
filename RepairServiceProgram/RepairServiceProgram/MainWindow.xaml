@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepairServiceProgram"
         mc:Ignorable="d"
-        Title="MainWindow" Width="640" Height="640"  WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Width="800" Height="640"  WindowStartupLocation="CenterScreen">
 	<Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>

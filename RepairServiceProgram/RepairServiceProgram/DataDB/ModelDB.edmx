@@ -213,6 +213,9 @@
         <Function Name="GenerateRepairReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetOrdersByCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+        </Function>
         <Function Name="RegisterRepairRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
         </Function>
@@ -538,6 +541,9 @@
           <FunctionImport Name="GenerateRepairReport" ReturnType="Collection(RepairServiceDBModel.GenerateRepairReport_Result)">
             <Parameter Name="OrderID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetOrdersByCustomer" ReturnType="Collection(RepairServiceDBModel.GetOrdersByCustomer_Result)">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="RegisterRepairRequest">
             <Parameter Name="OrderID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -569,6 +575,14 @@
           <Property Type="String" Name="Mode" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="RepairPartName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="RepairPartDescription" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetOrdersByCustomer_Result">
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="62" />
+          <Property Type="String" Name="DescriptionProbles" Nullable="false" />
+          <Property Type="String" Name="OrderStatus" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -697,6 +711,18 @@
                 <ScalarProperty Name="Mode" ColumnName="Mode" />
                 <ScalarProperty Name="RepairPartName" ColumnName="RepairPartName" />
                 <ScalarProperty Name="RepairPartDescription" ColumnName="RepairPartDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetOrdersByCustomer" FunctionName="Хранилище RepairServiceDBModel.GetOrdersByCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RepairServiceDBModel.GetOrdersByCustomer_Result">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DescriptionProbles" ColumnName="DescriptionProbles" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

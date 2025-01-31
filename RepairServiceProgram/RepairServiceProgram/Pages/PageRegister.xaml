@@ -35,7 +35,6 @@
 				<TextBox Name="Textbox_RePasswordData" Padding="10" />
 				<TextBlock Name="Textblock_ErrRePasswordData" Text="*text*" Foreground="Red" Visibility="Hidden"/>
 			</StackPanel>
-
 			
 			
 			<Button Padding="10" Margin="10,5,10,5" Content="Регистрация" Click="Register_Click"/>

@@ -1,0 +1,43 @@
+﻿<Page x:Class="RepairServiceProgram.Pages.Pages_Customer.PageMainCustomer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RepairServiceProgram.Pages.Pages_Customer"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="800"
+      Title="PageMain" Background="White">
+	
+	<Grid>
+		<ScrollViewer>
+			<StackPanel>
+				<Label Name="Label_HelloLabel" Content="Добро пожаловать! " FontSize="32" Padding="20" FontFamily="Arial Black"/>
+				<Border Padding="10" Margin="10" BorderThickness="2" BorderBrush="Black" CornerRadius="20">
+					<StackPanel>
+						<Label Content="Ваши зазказы"/>
+						<DataGrid Name="DataGrid_CustomerOrders" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Width="auto" Binding="{Binding OrderID}">
+									<DataGridTextColumn.Header>
+										<TextBlock>
+											Номер
+											<LineBreak/>
+											Заказа
+										</TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+
+								<DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>
+								<DataGridTextColumn Header="ФИО Мастера" Width="auto"  Binding="{Binding FullName}"/>
+								<DataGridTextColumn Header="Описание проблемы"  Width="*" Binding="{Binding DescriptionProbles}"/>
+								<DataGridTextColumn Header="Статус заказа" Binding="{Binding OrderStatus}"/>
+								<DataGridTextColumn Header="Дата завершения" Binding="{Binding CompletionDate}"/>
+
+							</DataGrid.Columns>
+						</DataGrid>
+					</StackPanel>
+				</Border>
+			</StackPanel>
+		</ScrollViewer>
+    </Grid>
+</Page>

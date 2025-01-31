@@ -118,6 +118,15 @@ namespace RepairServiceProgram.DataDB
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GenerateRepairReport_Result>("GenerateRepairReport", orderIDParameter);
         }
     
+        public virtual ObjectResult<GetOrdersByCustomer_Result> GetOrdersByCustomer(Nullable<int> customerID)
+        {
+            var customerIDParameter = customerID.HasValue ?
+                new ObjectParameter("CustomerID", customerID) :
+                new ObjectParameter("CustomerID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetOrdersByCustomer_Result>("GetOrdersByCustomer", customerIDParameter);
+        }
+    
         public virtual int RegisterRepairRequest(Nullable<int> orderID)
         {
             var orderIDParameter = orderID.HasValue ?

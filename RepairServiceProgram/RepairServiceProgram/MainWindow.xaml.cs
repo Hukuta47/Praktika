@@ -2,15 +2,15 @@
 using RepairServiceProgram.Classes;
 using RepairServiceProgram.DataDB;
 using RepairServiceProgram.Pages;
+using RepairServiceProgram.Classes.Objects;
 
 namespace RepairServiceProgram
 {
     public partial class MainWindow : Window
     {
         public static RepairServiceDBEntities ModelDB;
-
-        public static string UsernameData;
-        public static string PasswordData;
+        public static UserData userData;
+        
         public MainWindow()
         {
             InitializeComponent();
