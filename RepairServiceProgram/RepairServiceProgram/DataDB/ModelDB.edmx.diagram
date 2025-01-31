@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a37f0bed158b474cba276717cb9fcc19" Name="Diagram1">
+      <Diagram DiagramId="079b8fc30ebb46bb8619c50b47e49b3a" Name="Diagram1">
         <EntityTypeShape EntityType="RepairServiceDBModel.Comments" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.LoginData" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RepairServiceDBModel.Orders" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />

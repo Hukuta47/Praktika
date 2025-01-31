@@ -2,7 +2,7 @@ CREATE DATABASE RepairServiceDB
 GO
 USE RepairServiceDB
 GO
-CREATE TABLE LoginData 
+CREATE TABLE LoginData
 (
 	[LoginDataID] INT IDENTITY PRIMARY KEY,
 	[Username] VARCHAR(20) NOT NULL,

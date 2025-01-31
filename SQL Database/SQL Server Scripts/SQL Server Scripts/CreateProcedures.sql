@@ -132,7 +132,7 @@ BEGIN
     JOIN
         OrdersStatus OS ON O.OrderStatusID = OS.OrderStatusID
     WHERE
-        O.CustomerID = 8;
+        O.CustomerID = @CustomerID;
 END;
 
 -- 7 --

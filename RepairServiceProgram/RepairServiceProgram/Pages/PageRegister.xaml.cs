@@ -21,10 +21,9 @@ namespace RepairServiceProgram.Pages
         {
             HideErrorMessages();
 
-
             string firstName = Textbox_FullNameData.Text.Split(' ')[0];
-            string lastName = Textbox_FullNameData.Text.Split(' ')[0];
-            string patronymic = Textbox_FullNameData.Text.Split(' ')[0];
+            string lastName = Textbox_FullNameData.Text.Split(' ')[1];
+            string patronymic = Textbox_FullNameData.Text.Split(' ')[2];
             string username = Textbox_UsernameData.Text;
             string phoneNumber = Textbox_NumberPhoneData.Text;
             string password = Textbox_PasswordData.Text;

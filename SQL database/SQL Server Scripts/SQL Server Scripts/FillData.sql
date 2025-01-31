@@ -18,7 +18,7 @@ VALUES
 (N'Оператор', N'Обрабатывает заявки'),
 (N'Заказчик', N'Создает заявки');
 
-INSERT INTO Users (FirstName, LastName, Patronymic, Phone, LoginDateID, UserTypeID)
+INSERT INTO Users (FirstName, LastName, Patronymic, Phone, LoginDataID, UserTypeID)
 VALUES
 ('Никита', 'Трубин', 'Юрьевич', '89210563128', 1, 1),
 ('Андрей', 'Мурашов', 'Юрьевич', '89535078985', 2, 2),
