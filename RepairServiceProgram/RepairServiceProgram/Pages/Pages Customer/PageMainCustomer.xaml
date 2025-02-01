@@ -12,11 +12,10 @@
 	<Grid>
 		<ScrollViewer>
 			<StackPanel>
-				<Label Name="Label_HelloLabel" Content="Добро пожаловать! " FontSize="32" Padding="20" FontFamily="Arial Black"/>
 				<Border Padding="10" Margin="10" BorderThickness="2" BorderBrush="Black" CornerRadius="20">
 					<StackPanel>
 						<Label Content="Ваши зазказы"/>
-						<DataGrid Name="DataGrid_CustomerOrders" AutoGenerateColumns="False">
+						<DataGrid Name="DataGrid_CustomerOrders" AutoGenerateColumns="False" SelectedCellsChanged="DataGrid_CustomerOrders_SelectedCellsChanged" SelectionMode="Single">
 							<DataGrid.Columns>
 								<DataGridTextColumn Width="auto" Binding="{Binding OrderID}">
 									<DataGridTextColumn.Header>
@@ -40,7 +39,7 @@
 				</Border>
 				<StackPanel Orientation="Horizontal">
 					<Button Content="Создать заявку" Padding="10" Margin="2" Click="CreateOrder"/>
-					<Button Content="Изменить заявку" Padding="10" Margin="2"/>
+					<Button x:Name="Button_ChangeOrder" Content="Изменить заявку" Padding="10" Margin="2" Click="ChangeOrder_Click" IsEnabled="False"/>
 					<Button Content="Обновить таблицу" Padding="10" Margin="2" Click="RefreshDataGrid_Click"/>
 				</StackPanel>
 

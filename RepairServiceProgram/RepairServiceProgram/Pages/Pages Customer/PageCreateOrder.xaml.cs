@@ -1,12 +1,9 @@
 ﻿using RepairServiceProgram.Classes;
 using RepairServiceProgram.DataDB;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using RepairServiceProgram.Classes.Enums;
 
 namespace RepairServiceProgram.Pages.Pages_Customer
 {
@@ -20,6 +17,7 @@ namespace RepairServiceProgram.Pages.Pages_Customer
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             PageManager.MainFrame.GoBack();
+            MainWindow.ChangeLabelWindow($"Добро пожаловать! {MainWindow.userData.FirstName} {MainWindow.userData.Patronymic}");
         }
 
         private void CreateOrder_Click(object sender, RoutedEventArgs e)
@@ -43,7 +41,10 @@ namespace RepairServiceProgram.Pages.Pages_Customer
             MainWindow.ModelDB.CreateRepairRequest(MainWindow.userData.UserID, newTechID, DescriptionProblem);
 
 
-
+            PageManager.MainFrame.GoBack();
+            MainWindow.ChangeLabelWindow($"Добро пожаловать! {MainWindow.userData.FirstName} {MainWindow.userData.Patronymic}");
+            MainWindow.ShowNotification("Заявка создана.", EnumNotification.Succses);
+            PageMainCustomer.RefreshDataGrid();
 
         }
     }
