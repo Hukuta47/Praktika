@@ -29,6 +29,8 @@ namespace RepairServiceProgram.Pages.Pages_Customer
 
         private void ChangeOrder_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.ModelDB.Orders.FirstOrDefault(n => n.OrderID == order.OrderID).Description = Textbox_DescriptionProblem.Text;
+            MainWindow.ModelDB.SaveChanges();
 
 
 
